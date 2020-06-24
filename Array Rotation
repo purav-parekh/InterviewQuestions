@@ -1,0 +1,44 @@
+**********************Naive Method----O(n^2)***********************************
+n=10 #int(input())
+d=3 #int(input())
+a = [0,1,2,3,4,5,6,7,8,9] #list(map(int, input().rstrip().split()))
+length=len(a)
+def rotLeft(a, d):
+    length=len(a)
+    m=0
+    if(d>n):
+        d %= n;
+        while(m<d):
+            temp=a[0]
+            for i in range(length-1):
+                a[i] = a[i+1]
+            a[length-1]=temp 
+            i=0
+            m+=1
+        return a
+    else:
+        while(m<d):
+            temp=a[0]
+            for i in range(length-1):
+                a[i] = a[i+1]
+            a[length-1]=temp 
+            i=0
+            m+=1
+        return a
+
+print(rotLeft(a,d))      
+
+**********************Naive Method----O(1)***********************************
+def rotLeft(a,d):
+  b=['nil']*n
+  length=len(a)
+  d%=n
+  for i in range(length):
+    ele=a[i]
+    new_index = (i + n- d) % (n);
+    b[new_index]=ele
+  return b 
+
+#b=['nil']*n
+#print(b)
+print(rotLeft(a,d))   
