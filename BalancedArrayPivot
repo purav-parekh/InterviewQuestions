@@ -1,0 +1,21 @@
+//Finds the element which has the sum of elements on either side equal.
+//For ex:
+//a=[1,2,3,4,6]
+//Here the pivot is 4 because, all the elements to left of 4 add upto 6(1+2+3) and all the elements on the right of 4 add upto 6. Hence 4 is the balanced pivot.
+
+a=[1,2,3,4,6]
+n=len(a)
+start=a[0]
+end=a[n-1]
+lsum,rsum=0,0
+for i in range(1,n):
+  rsum+=a[i]
+i=0
+j=1
+while(j<n):
+  rsum-=a[j]
+  lsum+=a[i]
+  if lsum==rsum:
+    print(a[i+1])
+  i+=1
+  j+=1  
