@@ -1,0 +1,20 @@
+import math
+
+#O(n)
+num=2019
+count=0
+while(num!=0):
+  num//=10
+  #print(n)
+  count+=1 
+print(count)
+
+#O(1)
+k=math.floor(math.log10(num)+1)
+print(k)
+
+# import math 
+  
+# # Printing the log base 10 of 14 
+# print ("Logarithm base 10 of 14 is : ", end="") 
+# print (math.log10(2019)) 
