@@ -1,0 +1,42 @@
+#This program sorts the given string in ascending order using the counting sort algorithm.
+#Time complexity of this program is O(n)
+
+def countingSort(s,n):
+    hashtable=[0]*26
+    hashtable[0]=-1
+    for _ in range(n):
+      hashtable[ord(s[_])-96]+=1
+    for _ in range(2,len(hashtable)):
+      hashtable[_]=hashtable[_-1]+hashtable[_]
+    sortArr=['']*n
+    for i in range(n):
+      st=s[i]
+      a=ord(st)-96
+      (sortArr[hashtable[a]-1])=st
+      hashtable[a]-=1
+      sortted=""
+    for _ in sortArr:
+      sortted+=_     
+    return sortted
+
+
+
+#{ 
+#  Driver Code Starts
+
+
+if __name__ == '__main__':
+    test_cases = int(input())
+    for cases in range(test_cases) :
+        n = int(input())
+        s=str(input())
+        print(countingSort(s,n))
+
+# } Driver Code Ends
+'''
+2
+5
+edsab
+21
+unitedstatesofamerica
+'''
