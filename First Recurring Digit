@@ -1,0 +1,9 @@
+def recurringChar(arr) :
+  hashmap={}
+  for i in arr:
+    if (i in hashmap):
+      return(i)
+    else:
+      hashmap[i]=0 
+     
+print(recurringChar('makeamericagreatagain'))
