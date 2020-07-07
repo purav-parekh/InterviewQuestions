@@ -1,0 +1,31 @@
+n=5
+arr=[89, 24, 75, 11, 23]
+#6
+#56 42 21 23 65 20
+
+def secondlargest(arr,n):
+    max_arr=max(arr)
+    b=['None']*n
+    for i in range(n):
+        if arr[i]==max_arr:
+            b[i]=1201
+        else:
+            b[i]=max_arr-arr[i]
+    min_arr=max_arr
+    i=0
+    j=-1
+    for i in range(n):
+        if b[i]<min_arr:
+            min_arr=b[i]
+            j=i
+    print(arr[j])
+
+secondlargest(arr,n)       
+
+# if __name__=="__main__":
+#     t=int(input())
+#     for i in range(t):
+#         n=int(input())
+#         arr=list(map(int,input().split()))
+#         secondlargest(arr,n)
+#         #print()
