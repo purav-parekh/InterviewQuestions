@@ -1,0 +1,104 @@
+class Node:
+  def __init__(self,data):
+    self.data = data
+    self.next = None
+    
+
+class LinkedList:
+  length=0
+  def __init__(self):
+    self.head=None
+    self.tail=self.head
+  #length=1
+      
+
+  def printlist(self):
+    if self.head==None:
+      print('Empty List')
+    else:  
+      temp=self.head
+      while(temp!=None):
+        print(temp.data,end=" ")
+        temp=temp.next
+      print("")    
+
+  def append(self,data):
+    new=Node(data)
+    if Llist.head == None:
+      Llist.head=new
+      Llist.head.next= self.tail 
+    else:
+      last=self.head
+      while(last.next):
+        last=last.next
+      last.next=new
+    #length+=1  
+      
+      
+
+  def prepend(self,data):
+    new=Node(data)
+    new.next=Llist.head
+    Llist.head=new
+  length+=1  
+
+  def traverse(self,index):
+    Current_node=self.head
+    count=0
+    while(count!=index and Current_node.next):
+      Current_node=Current_node.next
+      count+=1  
+    return Current_node
+  
+  
+  def insert(self,index,data):
+    new=Node(data)
+    leader=Llist.traverse(index-1)
+    hold=leader.next
+    leader.next=new
+    new.next=hold
+  
+    
+  def remove(self,index):
+    if index==0:
+      hold=self.head
+      self.head=hold.next
+    else:  
+      leader=Llist.traverse(index-1)
+    #hold=leader.next
+      leader.next=leader.next.next
+    return Llist.printlist()
+
+  def reverse(head):
+    first=head
+    second=first.next
+    while(second):
+      temp=second.next
+      second.next=first
+      first=second
+      second=temp
+
+    head.next=None
+    head=first 
+    return head   
+
+
+
+
+if __name__=='__main__':
+  
+  Llist=LinkedList()
+  
+  
+  Llist.append(7) 
+  Llist.append(5)
+  Llist.prepend(3)
+  Llist.prepend(8) 
+  Llist.append(10)  
+  Llist.insert(2,55)
+  Llist.printlist()
+
+  Llist.remove(0)
+  Llist.printlist()
+  #print(Llist.count)
+  #print('Length is =',Llist.length)
