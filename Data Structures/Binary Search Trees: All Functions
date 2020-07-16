@@ -1,0 +1,68 @@
+class Node:
+  def __init__(self,data):
+    self.left=None
+    self.data=data
+    self.right=None
+
+
+class BST:
+  def __init__(self):
+    self.root=None
+
+  def insert(self,data):
+    new=Node(data)
+    currNode=self.root
+    if self.root==None:
+      self.root=new
+    while(currNode):  
+      if (new.data>currNode.data):
+        if currNode.right is None:
+          currNode.right=new
+          return self
+        currNode=currNode.right   
+      elif (new.data<currNode.data):
+        if currNode.left is None:
+          currNode.left=new
+          return self
+        currNode=currNode.left
+      #print('Current Node is:',currNode.data)
+
+    return self.root       
+  
+  # def inorder(root):
+  #   currNode=root
+  #   while(currNode):
+  #     if currNode is None:
+  #       print('Tree is empty')
+  #     else:
+  #       inorder(currNode.left)
+  #       print(currNode.data)
+  #       inorder(currNode.right)
+  #     #currNode=currNode.right 
+
+  def lookup(self,value):
+    currNode=self.root
+    if currNode is None:
+      print('No node to lookup')
+    while(currNode.data):#!=value):
+      if(value < currNode.data):
+        currNode=currNode.left
+      elif(value > currNode.data):
+        currNode=currNode.right
+      elif currNode.data == value:    
+        print(currNode.data,'- Node present')
+        break     
+    return False               
+
+BinaryST=BST()
+
+BinaryST.insert(13)
+BinaryST.insert(9)
+BinaryST.insert(76)
+BinaryST.insert(22)
+BinaryST.insert(83)
+BinaryST.lookup(13)
+BinaryST.insert(15)
+BinaryST.insert(86)
+BinaryST.lookup(86)
+#print(BinaryST.currNode)
