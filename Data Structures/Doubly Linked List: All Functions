@@ -1,0 +1,77 @@
+class Node:
+  def __init__(self,data):
+    self.prev=None
+    self.data=data
+    self.next=None
+
+class DoublyLinkedList:
+  def __init__(self):
+    self.head=None
+    self.tail=None
+
+  def printlist(self):
+    if self.head == None:
+      print('Empty List')
+    else:
+      last=self.head
+      while(last!=None):
+        print(last.data,end=" ")
+        last=last.next          
+
+  def append(self,data):
+    new=Node(data)
+    if self.head == None:
+      self.head=new
+      self.tail=new.next
+    else:
+      last=self.head
+      while(last.next):
+        last=last.next
+      new.prev=last.next
+      last.next=new
+      last=new  
+    print(data, 'appended')  
+
+  def prepend(self,data):
+    new=Node(data)
+    new.next=self.head
+    self.head.prev=new
+    self.head=new
+    print(data, 'prepended')   
+
+  def traverse(self,index):
+    count=0
+    last=self.head
+    while(count!=index):
+      last=last.next
+      count=count+1
+    return last  
+
+  def insert(self,index,data):
+    new=Node(data)
+    leader=self.traverse(index-1)
+    hold=leader.next
+    leader.next=new
+    new.prev=leader
+    new.next=hold
+    hold.prev=new
+
+  def remove(self,index):
+    leader=self.traverse(index-1)
+    hold=leader.next
+    leader.next=hold.next
+    hold.prev=leader   
+
+
+if __name__=='__main__':
+  
+  Llist=DoublyLinkedList()
+  
+  Llist.append(7) 
+  Llist.append(5)
+  Llist.prepend(3)
+  Llist.prepend(8) 
+  Llist.append(10)  
+  Llist.insert(2,55)
+  Llist.remove(2)
+  Llist.printlist()
